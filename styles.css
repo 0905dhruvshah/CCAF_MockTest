@@ -200,6 +200,7 @@ body {
   justify-content: space-between;
   font-size: 0.73rem;
   color: var(--muted);
+  padding-left: 2px;
 }
 .navigator h2 {
   margin: 0;
@@ -821,4 +822,57 @@ footer strong {
 .instructions h2 i {
   margin-right: 8px;
   color: #61e6b1;
+}
+.practice-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 24px;
+}
+.practice-navigator {
+  position: sticky;
+  top: 15px;
+  padding: 8px;
+  height: 650px;
+  width: 300px;
+  overflow: hidden;
+}
+.practice-question-nav{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    overflow-y:auto;
+    max-height:560px;
+    padding-right:8px;
+}
+.practice-question-nav::-webkit-scrollbar {
+  width: 8px;
+}
+.practice-question-nav::-webkit-scrollbar-thumb {
+  background: #4d6387;
+  border-radius: 20px;
+}
+.practice-nav-button{
+    width:45px;
+    height:45px;
+    border-radius:10px;
+    border:1px solid var(--line);
+    background:#0b1729;
+    color:#dfe7f7;
+    cursor:pointer;
+    font-weight:600;
+    transition:.25s;
+}
+.practice-nav-button:hover{
+    transform:translateY(-2px);
+    background:#1d3154;
+}
+.practice-nav-button.current{
+    background:#7c5cff;
+    color:white;
+    border-color:#7c5cff;
+}
+.practice-nav-button.answered{
+    background:#16a34a;
+    border-color:#16a34a;
+    color:white;
 }
