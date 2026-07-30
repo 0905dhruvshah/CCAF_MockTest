@@ -6,7 +6,7 @@ const portal = {
 const portalSections = ['welcome', 'exam', 'results', 'dashboard', 'practice', "resources"];
 async function getDashboardData() {
     try {
-        const response = await fetch(API_URL);
+        const response = await fetch(API_URL + "?t=" + Date.now(),{cache: "no-store"});
         if (!response.ok) {
             throw new Error("Unable to load dashboard data.");
         }
@@ -17,20 +17,24 @@ async function getDashboardData() {
         return [];
     }
 }
-function showPortal(name) {
-    portalSections.forEach(id => document.getElementById(id).classList.toggle("hidden", id !== name));
+async function showPortal(name) {
+    portalSections.forEach(id =>
+        document.getElementById(id).classList.toggle("hidden", id !== name)
+    );
     document.querySelectorAll(".nav-link").forEach(btn => {
         btn.classList.remove("active");
         if (btn.dataset.portal === name)
             btn.classList.add("active");
     });
-
     if (name === "practice") {
         renderPractice();
     }
+    if (name === "dashboard") {
+        await renderDashboard();
+    }
     window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+        top:0,
+        behavior:"smooth"
     });
 }
 
