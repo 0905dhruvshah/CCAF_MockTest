@@ -69,6 +69,7 @@ loginForm.addEventListener("submit", async (e) => {
         if (result.success) {
             auth.currentUser = result.user;
             localStorage.setItem("ccaf-user", JSON.stringify(result.user));
+            console.log("Saved:", localStorage.getItem("ccaf-user"));
             document.getElementById("auth").classList.add("hidden");
             document.getElementById("welcome").classList.remove("hidden");
         } else {
