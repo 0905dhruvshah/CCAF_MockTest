@@ -80,15 +80,20 @@ loginForm.addEventListener("submit", async (e) => {
 });
 
 function checkLogin() {
+    console.log("checkLogin called");
     const storedUser = localStorage.getItem("ccaf-user");
+    console.log("storedUser =", storedUser);
     if (!storedUser) {
+        console.log("No stored user");
         return false;
     }
     try {
         const user = JSON.parse(storedUser);
+        console.log("Logged in user:", user);
         auth.currentUser = user;
         document.getElementById("auth").classList.add("hidden");
         document.getElementById("welcome").classList.remove("hidden");
+        console.log("Welcome page shown");
         return true;
     } catch (e) {
         localStorage.removeItem("ccaf-user");
