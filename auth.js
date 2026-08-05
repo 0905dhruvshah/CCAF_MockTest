@@ -40,6 +40,8 @@ registerForm.addEventListener("submit", async (e) => {
         const result = await response.json();
         console.log(result);
         if(result.success){
+            localStorage.setItem("ccaf-user", JSON.stringify(result.user));
+            console.log("Saved:", localStorage.getItem("ccaf-user"));
             authMessage.innerHTML = "<p style='color:#61e6b1'>Registration Successful. Please login.</p>";
             registerForm.reset();
             loginTab.click();
@@ -67,7 +69,7 @@ loginForm.addEventListener("submit", async (e) => {
         const result = await response.json();
         console.log(result);
         if (result.success) {
-            console.log("SUCCESS");
+            document.getElementById("loggedUserName").innerText = result.user.name;
             auth.currentUser = result.user;
             localStorage.setItem("ccaf-user", JSON.stringify(result.user));
             console.log("Saved:", localStorage.getItem("ccaf-user"));
@@ -85,13 +87,15 @@ function checkLogin() {
     console.log("checkLogin called");
     const storedUser = localStorage.getItem("ccaf-user");
     console.log("storedUser =", storedUser);
-    if (!storedUser) {
-        console.log("No stored user");
+    if (!storedUser) {        
+        document.getElementById("auth").classList.remove("hidden");
+        document.getElementById("welcome").classList.add("hidden");
         return false;
     }
     try {
         const user = JSON.parse(storedUser);
         console.log("Logged in user:", user);
+        document.getElementById("loggedUserName").innerText = user.name;
         auth.currentUser = user;
         document.getElementById("auth").classList.add("hidden");
         document.getElementById("welcome").classList.remove("hidden");
@@ -107,15 +111,31 @@ document.getElementById("logoutButton").addEventListener("click", logout);
 function logout(){
     localStorage.removeItem("ccaf-user");
     auth.currentUser = null;
-    location.reload();
+    document.getElementById("welcome").classList.add("hidden");
+    document.getElementById("auth").classList.remove("hidden");
+    loginForm.reset();
+    authMessage.innerHTML = "";
 }
 
 function isLoggedIn(){
     return localStorage.getItem("ccaf-user") != null;
 }
-window.addEventListener("DOMContentLoaded", () => {
-    checkLogin();
+const profileButton = document.getElementById("profileButton");
+const profileMenu = document.getElementById("profileMenu");
+if (profileButton && profileMenu) {
+    profileButton.addEventListener("click", () => { profileMenu.classList.toggle("hidden"); });
+}
+document.addEventListener("click", (e) => {
+    if(!profileButton.contains(e.target) &&
+       !profileMenu.contains(e.target)){
+        profileMenu.classList.add("hidden");
+    }
 });
-window.onload = () => {
-    checkLogin();
-};
+document.querySelectorAll(".profile-item[data-portal]").forEach(button => {
+    button.addEventListener("click", () => {
+        showPortal(button.dataset.portal);
+        profileMenu.classList.add("hidden");
+    });
+});
+
+document.addEventListener("DOMContentLoaded", checkLogin);
