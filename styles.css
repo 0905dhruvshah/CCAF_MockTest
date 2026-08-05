@@ -882,7 +882,11 @@ footer strong {
   align-items: center;
   justify-content: center;
 }
-.auth-container {
+.auth-container{
+    display:grid;
+    grid-template-columns:55% 45%;
+}
+/* .auth-container {
   width: 100%;
   max-width: 1050px;
   display: grid;
@@ -891,7 +895,7 @@ footer strong {
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-}
+} */
 .auth-left {
   padding: 70px;
   background: linear-gradient(135deg, #6c63ff, #4fd1ff);
@@ -918,14 +922,6 @@ footer strong {
 }
 .auth-tabs button{
     flex:1;
-    border:none;
-    background:#0d1c32;
-    color:#9fb5d5;
-    padding:14px;
-    border-radius:10px;
-    cursor:pointer;
-    transition:.25s;
-    font-weight:600;
 }
 .auth-tabs button.active{
     background:#61e6b1;
@@ -1054,10 +1050,10 @@ footer strong {
 }
 .auth-card{
     width:100%;
-    max-width:460px;
-    background:#162741;
-    border-radius:22px;
+    max-width:430px;
     padding:40px;
+    background:#182944;
+    border-radius:20px;
     border:1px solid rgba(255,255,255,.08);
     box-shadow:0 25px 60px rgba(0,0,0,.35);
 }
@@ -1074,4 +1070,27 @@ footer strong {
 .auth-title p{
     color:#9db0cb;
     margin-top:10px;
+}
+#loginForm,
+#registerForm{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+.auth-card input{
+    width:100%;
+}
+.auth-card .button{
+    width:100%;
+}
+.login-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(97,230,177,.1);
+    color:#61e6b1;
+    padding:8px 14px;
+    border-radius:30px;
+    margin-bottom:25px;
+    font-size:14px;
 }
