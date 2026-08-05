@@ -937,3 +937,45 @@ footer strong {
 .auth-right button {
   width: 100%;
 }
+.profile-dropdown {
+  position: relative;
+}
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+}
+.profile-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 220px;
+  background: #132238;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+.profile-item {
+  width: 100%;
+  border: none;
+  background: none;
+  color: white;
+  padding: 15px;
+  display: flex;
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+}
+.profile-item:hover {
+  background: #1d3355;
+}
+.profile-menu hr {
+  margin: 0;
+  border: 0.5px solid #27405f;
+}
