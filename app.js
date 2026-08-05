@@ -239,6 +239,10 @@ $('beginButton').addEventListener('click', () => {
         name: loggedUser.name,
         email: loggedUser.email
     });
+    if(!isLoggedIn()){        
+        alert("Please login.");
+        return;
+    }
     startExam();
 });
 els.prev.addEventListener('click', () => {
