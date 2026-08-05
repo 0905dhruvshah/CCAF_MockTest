@@ -4,10 +4,8 @@ const auth = {
 
 const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
-
 const loginTab = document.getElementById("loginTab");
 const registerTab = document.getElementById("registerTab");
-
 const authMessage = document.getElementById("authMessage");
 
 loginTab.addEventListener("click", () => {
@@ -78,3 +76,31 @@ loginForm.addEventListener("submit", async (e) => {
         authMessage.innerHTML = "<p style='color:#ff6b6b'>Server Error.</p>";
     }
 });
+
+function checkLogin() {
+    const user = JSON.parse(localStorage.getItem("ccaf-user"));
+    if (user) {
+        auth.currentUser = user;
+        document.getElementById("auth").classList.add("hidden");
+        document.getElementById("welcome").classList.remove("hidden");
+        return true;
+    }
+    document.getElementById("auth").classList.remove("hidden");
+    document.getElementById("welcome").classList.add("hidden");
+    return false;
+}
+window.onload = () => {
+    checkLogin();
+};
+
+document.getElementById("logoutButton").addEventListener("click", logout);
+
+function logout(){
+    localStorage.removeItem("ccaf-user");
+    auth.currentUser = null;
+    location.reload();
+}
+
+function isLoggedIn(){
+    return localStorage.getItem("ccaf-user") != null;
+}
