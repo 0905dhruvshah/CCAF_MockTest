@@ -17,7 +17,33 @@
 
 <body>
     <main class="shell">
-        <section id="welcome" class="welcome">
+        <section id="auth" class="auth-page">                
+            <div class="auth-container">           
+                <div class="auth-left">                
+                    <h1>Claude Certified Architect</h1>                
+                    <p>Sign in to access Mock Exams, Practice Questions, Dashboard and Certification Resources.</p>                
+                </div>            
+                <div class="auth-right">                
+                    <div class="auth-tabs">                    
+                        <button id="loginTab" class="active">Login</button>                    
+                        <button id="registerTab">Register</button>                    
+                    </div>  
+                    <form id="loginForm">                    
+                        <input type="email" id="loginEmail" placeholder="Email Address" required>                    
+                        <input type="password" id="loginPassword" placeholder="Password" required>                    
+                        <button class="button primary" type="submit">Login</button>                    
+                    </form>
+                    <form id="registerForm" class="hidden">
+                        <input type="text" id="registerName" placeholder="Full Name" required>                
+                        <input type="email" id="registerEmail" placeholder="Email Address" required>                
+                        <input type="password" id="registerPassword" placeholder="Password" required>                
+                        <button class="button primary" type="submit">Create Account</button>                    
+                    </form>                
+                    <div id="authMessage"></div>                
+                </div>            
+            </div>        
+        </section>
+        <section id="welcome" class="welcome hidden">
           <nav class="landing-nav" aria-label="Main Navigation">
               <div class="brand"> <i class="fa-solid fa-graduation-cap"></i>
                   <div> <span>Claude Certified Architect</span> <small>Foundations Certification</small> </div>
@@ -331,7 +357,7 @@
         </section>
     </main>
     <footer>Prepared by <strong>Dhruv Shah</strong></footer>
-    <div id="candidateModal" class="candidate-modal hidden">
+    <!-- <div id="candidateModal" class="candidate-modal hidden">
         <div class="candidate-card">
             <h2>Welcome to Claude Certified Architect–Foundations Certification Mock Test</h2>
             <p>Please enter your details before starting the exam.</p>
@@ -345,7 +371,8 @@
             </div>
             <button id="startExamButton" class="button primary" type="button">Start Exam</button>
         </div>
-    </div>
+    </div> -->
+
     <script src="config.js"></script>
     <script src="questions.js" defer></script>
     <script src="app.js" defer></script>
