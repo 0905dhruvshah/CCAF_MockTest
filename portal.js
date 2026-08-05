@@ -18,6 +18,10 @@ async function getDashboardData() {
     }
 }
 async function showPortal(name) {
+    if(!isLoggedIn()){
+        alert("Please login.");
+        return;
+    }
     portalSections.forEach(id =>
         document.getElementById(id).classList.toggle("hidden", id !== name)
     );
