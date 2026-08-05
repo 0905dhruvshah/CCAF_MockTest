@@ -161,6 +161,7 @@ async function submitExam(expired) {
         const response = await fetch(API_URL, {
             method: "POST",
             body: JSON.stringify({
+                action: "saveResult",
                 name: currentCandidate.name,
                 email: currentCandidate.email || "",
                 status: passed ? "PASS" : "FAIL",
@@ -229,10 +230,16 @@ function quitExam() {
     if (window.confirm('Quit this exam? Your progress will not be saved.')) window.location.reload();
 }
 $('beginButton').addEventListener('click', () => {
-    candidateNameInput.value = "";
-    candidateEmailInput.value = "";
-    candidateModal.classList.remove("hidden");
-    candidateNameInput.focus();
+    const loggedUser = JSON.parse(localStorage.getItem("ccaf-user"));
+    if (!loggedUser) {
+        alert("Please login first.");
+        return;
+    }
+    saveCandidate({
+        name: loggedUser.name,
+        email: loggedUser.email
+    });
+    startExam();
 });
 els.prev.addEventListener('click', () => {
     if (state.current) {
@@ -248,19 +255,4 @@ document.querySelectorAll('.filter').forEach(button => button.addEventListener('
     renderReview();
 }));
 $('restartButton').addEventListener('click', () => window.location.reload());
-startExamButton.addEventListener("click", () => {
-    const name = candidateNameInput.value.trim();
-    const email = candidateEmailInput.value.trim();
-    if (name.length < 2) {
-        alert("Please enter your name.");
-        candidateNameInput.focus();
-        return;
-    }
-    saveCandidate({
-        name,
-        email
-    });
-    candidateModal.classList.add("hidden");
-    startExam();
-});
 $('questionCount').textContent = MOCK_LENGTH;
