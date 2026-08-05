@@ -44,30 +44,31 @@
                     </div>
                   </div>
                 </div>          
-                <div class="auth-right">                
-                    <div class="auth-card">   
-                        <div class="auth-title">
-                            <h2>Welcome Back 👋</h2>
-                            <p>Login to continue your CCA-F preparation.</p>
-                        </div>                 
-                        <div class="auth-tabs">
-                            <button id="loginTab" class="active">Login</button>
-                            <button id="registerTab">Register</button>
-                        </div>               
-                    </div>  
-                    <form id="loginForm">                    
-                        <input type="email" id="loginEmail" placeholder="Email Address" required>                    
-                        <input type="password" id="loginPassword" placeholder="Password" required>                    
-                        <button class="button primary" type="submit">Login</button>                    
+                <div class="auth-right">
+                  <div class="auth-card">
+                    <div class="auth-title">
+                        <div class="login-badge"><i class="fa-solid fa-shield-halved"></i>Secure Login</div>
+                        <h2>Welcome Back 👋</h2>
+                        <p>Login to continue your CCA-F preparation.</p>
+                    </div>
+                    <div class="auth-tabs">
+                      <button id="loginTab" class="active" type="button"> Login </button>
+                      <button id="registerTab" type="button"> Register </button>
+                    </div>
+                    <form id="loginForm">
+                      <input type="email" id="loginEmail" placeholder="Email Address" required>
+                      <input type="password" id="loginPassword" placeholder="Password" required>
+                      <button class="button primary" type="submit"> Login </button>
                     </form>
                     <form id="registerForm" class="hidden">
-                        <input type="text" id="registerName" placeholder="Full Name" required>                
-                        <input type="email" id="registerEmail" placeholder="Email Address" required>                
-                        <input type="password" id="registerPassword" placeholder="Password" required>                
-                        <button class="button primary" type="submit">Create Account</button>                    
-                    </form>                
-                    <div id="authMessage"></div>                
-                </div>            
+                      <input type="text" id="registerName" placeholder="Full Name" required>
+                      <input type="email" id="registerEmail" placeholder="Email Address" required>
+                      <input type="password" id="registerPassword" placeholder="Password" required>
+                      <button class="button primary" type="submit"> Create Account </button>
+                    </form>
+                    <div id="authMessage"></div>
+                  </div>
+                </div>           
             </div>        
         </section>
         <section id="welcome" class="welcome hidden">
