@@ -49,10 +49,20 @@
                   <div> <span>Claude Certified Architect</span> <small>Foundations Certification</small> </div>
               </div>
               <div class="nav-menu">
-                  <button class="nav-link" data-portal="resources"> <i class="fa-solid fa-book-open"></i> Resources </button>
-                  <button class="nav-link" data-portal="practice"> <i class="fa-solid fa-laptop-code"></i> Practice </button>
-                  <button class="nav-link" data-portal="dashboard"> <i class="fa-solid fa-chart-line"></i> Dashboard </button>
-                  <button id="logoutButton" class="nav-link"><i class="fa-solid fa-right-from-bracket"></i> Logout </button>
+                <div class="profile-dropdown">
+                  <button id="profileButton" class="profile-btn">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span id="loggedUserName">Guest</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                  <div id="profileMenu" class="profile-menu hidden">
+                    <button class="profile-item" data-portal="dashboard"><i class="fa-solid fa-chart-line"></i> Dashboard </button>
+                    <button class="profile-item" data-portal="practice"><i class="fa-solid fa-laptop-code"></i> Practice </button>
+                    <button class="profile-item" data-portal="resources"><i class="fa-solid fa-book-open"></i> Resources </button>
+                    <hr>
+                    <button id="logoutButton" class="profile-item"><i class="fa-solid fa-right-from-bracket"></i> Logout </button>
+                  </div>
+                </div>
               </div>
           </nav>
           <div class="hero-grid">
