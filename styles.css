@@ -883,31 +883,19 @@ footer strong {
   justify-content: center;
 }
 .auth-container{
+    width:100%;
+    max-width:1200px;
     display:grid;
     grid-template-columns:55% 45%;
+    background:#101c31;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 25px 70px rgba(0,0,0,.45);
 }
-/* .auth-container {
-  width: 100%;
-  max-width: 1050px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: #101c31;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-} */
 .auth-left {
-  padding: 70px;
+  padding:55px 60px;
   background: linear-gradient(135deg, #6c63ff, #4fd1ff);
   color: white;
-}
-.auth-left h1 {
-  font-size: 42px;
-  margin-bottom: 20px;
-}
-.auth-left p {
-  font-size: 18px;
-  line-height: 1.7;
 }
 .auth-right{
     display:flex;
@@ -922,14 +910,20 @@ footer strong {
 }
 .auth-tabs button{
     flex:1;
+    transition:.25s;
+}
+.auth-tabs button:hover{
+    background:#22395b;
 }
 .auth-tabs button.active{
     background:#61e6b1;
-    color:#07101f;
+    color:#081321;
+    font-weight:700;
+    box-shadow:0 10px 20px rgba(97,230,177,.25);
 }
 .auth-right input{
     width:100%;
-    padding:16px;
+    padding:18px 16px;
     margin-bottom:18px;
     border-radius:12px;
     border:1px solid #324d75;
@@ -939,7 +933,9 @@ footer strong {
 }
 .auth-right .button{
     width:100%;
-    margin-top:10px;
+    margin-top:12px;
+    height:54px;
+    font-size:17px;
     padding:16px;
     font-size:16px;
     border-radius:12px;
@@ -1036,7 +1032,7 @@ footer strong {
 .auth-features {
   margin-top: 40px;
   display: grid;
-  gap: 18px;
+  gap: 22px;
 }
 .auth-features div {
   display: flex;
@@ -1050,12 +1046,23 @@ footer strong {
 }
 .auth-card{
     width:100%;
-    max-width:430px;
-    padding:40px;
+    max-width:460px;
+    padding:36px;
     background:#182944;
     border-radius:20px;
     border:1px solid rgba(255,255,255,.08);
     box-shadow:0 25px 60px rgba(0,0,0,.35);
+    animation:fadeUp .5s ease;
+}
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:none;
+}
 }
 .auth-title{
     text-align:center;
