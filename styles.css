@@ -999,3 +999,51 @@ footer strong {
     align-items:center;
     margin-left:auto;
 }
+.auth-brand {
+  margin-bottom: 30px;
+}
+.auth-brand i {
+  font-size: 55px;
+  color: #59e6b0;
+}
+.auth-brand span {
+  font-size: 36px;
+  font-weight: 800;
+}
+.auth-brand small {
+  color: #9bb3d7;
+  font-size: 18px;
+}
+.auth-left h1 {
+  margin-top: 20px;
+  font-size: 44px;
+  line-height: 1.25;
+  color: white;
+}
+.auth-left p {
+  margin-top: 18px;
+  font-size: 18px;
+  color: #b8c8e0;
+  line-height: 1.8;
+}
+.auth-features {
+  margin-top: 40px;
+  display: grid;
+  gap: 18px;
+}
+.auth-features div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  color: white;
+}
+.auth-features i {
+  color: #59e6b0;
+}
+.auth-card {
+  background: #15263d;
+  padding: 40px;
+  border-radius: 22px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
