@@ -38,6 +38,7 @@ registerForm.addEventListener("submit", async (e) => {
             body: JSON.stringify(body)
         });
         const result = await response.json();
+        console.log(result);
         if(result.success){
             authMessage.innerHTML = "<p style='color:#61e6b1'>Registration Successful. Please login.</p>";
             registerForm.reset();
@@ -64,6 +65,7 @@ loginForm.addEventListener("submit", async (e) => {
             body: JSON.stringify(body)
         });
         const result = await response.json();
+        console.log(result);
         if (result.success) {
             auth.currentUser = result.user;
             localStorage.setItem("ccaf-user", JSON.stringify(result.user));
@@ -79,16 +81,25 @@ loginForm.addEventListener("submit", async (e) => {
 
 function checkLogin() {
     const storedUser = localStorage.getItem("ccaf-user");
-    const user = storedUser ? JSON.parse(storedUser) : null;
-    if (user) {
+    if (!storedUser || storedUser === "undefined" || storedUser === "null") {
+        localStorage.removeItem("ccaf-user");
+        document.getElementById("auth").classList.remove("hidden");
+        document.getElementById("welcome").classList.add("hidden");
+        return false;
+    }
+    try {
+        const user = JSON.parse(storedUser);
         auth.currentUser = user;
         document.getElementById("auth").classList.add("hidden");
         document.getElementById("welcome").classList.remove("hidden");
         return true;
+    } catch (err) {
+        console.error(err);
+        localStorage.removeItem("ccaf-user");
+        document.getElementById("auth").classList.remove("hidden");
+        document.getElementById("welcome").classList.add("hidden");
+        return false;
     }
-    document.getElementById("auth").classList.remove("hidden");
-    document.getElementById("welcome").classList.add("hidden");
-    return false;
 }
 window.onload = () => {
     checkLogin();
