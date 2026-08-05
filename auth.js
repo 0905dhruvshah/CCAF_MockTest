@@ -67,6 +67,7 @@ loginForm.addEventListener("submit", async (e) => {
         const result = await response.json();
         console.log(result);
         if (result.success) {
+            console.log("SUCCESS");
             auth.currentUser = result.user;
             localStorage.setItem("ccaf-user", JSON.stringify(result.user));
             console.log("Saved:", localStorage.getItem("ccaf-user"));
