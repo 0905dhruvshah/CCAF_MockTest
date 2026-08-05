@@ -81,10 +81,7 @@ loginForm.addEventListener("submit", async (e) => {
 
 function checkLogin() {
     const storedUser = localStorage.getItem("ccaf-user");
-    if (!storedUser || storedUser === "undefined" || storedUser === "null") {
-        localStorage.removeItem("ccaf-user");
-        document.getElementById("auth").classList.remove("hidden");
-        document.getElementById("welcome").classList.add("hidden");
+    if (!storedUser) {
         return false;
     }
     try {
@@ -93,18 +90,11 @@ function checkLogin() {
         document.getElementById("auth").classList.add("hidden");
         document.getElementById("welcome").classList.remove("hidden");
         return true;
-    } catch (err) {
-        console.error(err);
+    } catch (e) {
         localStorage.removeItem("ccaf-user");
-        document.getElementById("auth").classList.remove("hidden");
-        document.getElementById("welcome").classList.add("hidden");
         return false;
     }
 }
-window.onload = () => {
-    checkLogin();
-};
-
 document.getElementById("logoutButton").addEventListener("click", logout);
 
 function logout(){
@@ -116,3 +106,9 @@ function logout(){
 function isLoggedIn(){
     return localStorage.getItem("ccaf-user") != null;
 }
+window.addEventListener("DOMContentLoaded", () => {
+    checkLogin();
+});
+window.onload = () => {
+    checkLogin();
+};
