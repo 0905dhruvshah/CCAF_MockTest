@@ -78,7 +78,8 @@ loginForm.addEventListener("submit", async (e) => {
 });
 
 function checkLogin() {
-    const user = JSON.parse(localStorage.getItem("ccaf-user"));
+    const storedUser = localStorage.getItem("ccaf-user");
+    const user = storedUser ? JSON.parse(storedUser) : null;
     if (user) {
         auth.currentUser = user;
         document.getElementById("auth").classList.add("hidden");
