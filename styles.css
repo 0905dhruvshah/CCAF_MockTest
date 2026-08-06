@@ -908,10 +908,20 @@ footer strong {
     gap:8px;
     margin:30px 0;
 }
-.auth-tabs button{
-    flex:1;
-    transition:.25s;
+.auth-tabs button {
+  flex: 1;
+  height: 44px;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  background: #0d1c32;
+  color: #9fb5d5;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
+
 .auth-tabs button:hover{
     background:#22395b;
 }
