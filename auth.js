@@ -36,10 +36,13 @@
             password: document.getElementById("registerPassword").value
         };
         try {
+            console.log("API_URL:", API_URL);
             const response = await fetch(API_URL, {
                 method: "POST",
                 body: JSON.stringify(body)
             });
+            console.log("Final URL:", response.url);
+            console.log("Status:", response.status);
             const text = await response.text();                    
             console.log("Registration Response:", text);
             const result = JSON.parse(text);
