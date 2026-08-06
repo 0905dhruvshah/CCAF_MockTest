@@ -71,9 +71,9 @@
                 method: "POST",
                 body: JSON.stringify(body)
             });
-            const result = await response.json();
             const text = await response.text();
             console.log(text);
+            const result = JSON.parse(text);
             if (result.success) {
                 auth.currentUser = result.user;
                 localStorage.setItem("ccaf-user", JSON.stringify(result.user));
