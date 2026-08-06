@@ -40,7 +40,9 @@
                 method: "POST",
                 body: JSON.stringify(body)
             });
-            const result = await response.json();
+            const text = await response.text();                    
+            console.log("Registration Response:", text);
+            const result = JSON.parse(text);
             if (result.success) {
                 registerForm.reset();
                 document.getElementById("successModal").classList.remove("hidden");
